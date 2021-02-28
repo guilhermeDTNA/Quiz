@@ -1,0 +1,75 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package dao;
+
+/**
+ *
+ * @author guilherme
+ */
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
+import settings.DBSettings;
+import entidade.Questions;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+public class QuestionDAO {
+
+    public List<Questions> showQuestions() throws Exception {
+        String sql = "SELECT * FROM questions";
+        List<Questions> list = new ArrayList<Questions>();
+
+        PreparedStatement pst = DBSettings.getPreparedStatement(sql);
+        try {
+
+            ResultSet res = pst.executeQuery();
+            while (res.next()) {
+                Questions question = new Questions();
+                question.setQuestion(res.getString("question"));
+                question.setAnswer(res.getString("answer"));
+
+                list.add(question);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(QuestionDAO.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+
+        return list;
+    }
+
+    public Questions searchQuestion(int id) {
+        String sql = "SELECT * FROM questions where id=?";
+        Questions question = null;
+
+        PreparedStatement pst = DBSettings.getPreparedStatement(sql);
+        try {
+
+            pst.setInt(1, question.getId());
+            ResultSet res = pst.executeQuery();
+
+            if (res.next()) {
+                
+                question = new Questions();
+                question.setId(id);
+                question.setQuestion(res.getString("question"));
+                question.setAnswer(res.getString("answer"));
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(QuestionDAO.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+
+        return question;
+    }
+}
