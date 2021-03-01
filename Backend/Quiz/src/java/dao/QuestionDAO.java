@@ -17,6 +17,7 @@ import settings.DBSettings;
 import entidade.Questions;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -57,7 +58,7 @@ public class QuestionDAO {
             ResultSet res = pst.executeQuery();
 
             if (res.next()) {
-                
+
                 question.setId(res.getInt(1));
                 question.setQuestion(res.getString(2));
                 question.setAnswer(res.getString(3));
@@ -71,4 +72,107 @@ public class QuestionDAO {
 
         return question;
     }
+
+    //Testando
+    public boolean add(Questions question) {
+        String sql = "INSERT INTO questions(question, answer) VALUES(?,?)";
+        Boolean isSuccess = false;
+        PreparedStatement pst = DBSettings.getPreparedStatement(sql);
+        try {
+            pst.setString(1, question.getQuestion());
+            pst.setString(2, question.getAnswer());
+
+            if (pst.executeUpdate() > 0) {
+                isSuccess = true;
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(QuestionDAO.class.getName()).log(Level.SEVERE, null, ex);
+            isSuccess = false;
+        }
+
+        return isSuccess;
+
+    }
+ /*
+    public int addQuestion(String question, String answer) throws Exception {
+        int idGerado = 0;
+        
+        Questions question = new Questions();
+
+        String sql = "INSERT INTO questions(question, answer) VALUES(?, ?)";
+        PreparedStatement pst = DBSettings.getPreparedStatement(sql);
+        
+        try{
+            //pst.setString(2, question);
+            //pst.setString(3, answer);
+            ResultSet res = pst.executeQuery();
+            
+        } catch(Exception e){
+            
+        }
+        
+        statement.setString(1, nota.getTitulo());
+        statement.setString(2, nota.getDescricao());
+        statement.execute();
+
+        ResultSet rs = statement.getGeneratedKeys();
+        if (rs.next()) {
+            idGerado = rs.getInt(1);
+        }
+
+        return idGerado;
+    }
+
+   
+    public boolean atualizar(Question question)
+    {
+        String sql = "UPDATE question set question=?, answer=?";
+        Boolean retorno = false;
+        PreparedStatement pst = Conexao.getPreparedStatement(sql);
+        try {
+          
+            pst.setString(1, question.getQuestion());
+            pst.setString(2, question.getAnswer());
+            if(pst.executeUpdate()>0)
+            {
+                retorno = true;
+            }
+                
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(QuestionDAO.class.getName()).log(Level.SEVERE, null, ex);
+            retorno = false;
+        }
+        
+        return retorno;
+    
+    }
+    
+    public boolean excluir(Question question)
+    {
+        String sql = "DELETE FROM question where id=?";
+        Boolean retorno = false;
+        PreparedStatement pst = Conexao.getPreparedStatement(sql);
+        try {
+          
+           
+            pst.setString(1, question.getId());
+            if(pst.executeUpdate()>0)
+            {
+                retorno = true;
+            }
+                
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(QuestionDAO.class.getName()).log(Level.SEVERE, null, ex);
+            retorno = false;
+        }
+        
+        return retorno;
+    
+    }
+     */
 }

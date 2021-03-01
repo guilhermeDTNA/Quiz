@@ -16,7 +16,6 @@ import javax.ws.rs.core.MediaType;
 
 import dao.QuestionDAO;
 import entidade.Questions;
-import javax.ws.rs.Consumes;
 import javax.ws.rs.PathParam;
 
 @Path("/questions")
@@ -60,5 +59,26 @@ public class QuizService {
         Gson g = new Gson();
         return g.toJson(question);
     }
+    /*
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Path("/add")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String addNota(@PathParam("id", "question") int id, ) {
+		String msg = "";
 
+		//System.out.println(q.getTitulo());
+
+		try {
+			int idGerado = notaDAO.addNota(nota);
+
+			msg = String.valueOf(idGerado);
+		} catch (Exception e) {
+			msg = "Erro ao add a nota!";
+			e.printStackTrace();
+		}
+
+		return msg;
+	}
+    */
 }

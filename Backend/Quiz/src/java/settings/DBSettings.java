@@ -16,73 +16,42 @@ import java.sql.PreparedStatement;
 
 public class DBSettings {
 
-    private static final String banco
-            = "jdbc:mysql://localhost:3306/quiz";
-    /**
-     * O atributo driver representa a classe do Driver JDBC que será usada na
-     * conexão. Quando se utiliza outros bancos usa-se a classe apropriada a
-     * cada banco
-     */
-    private static final String driver
-            = "com.mysql.jdbc.Driver";
-    /**
-     * Os atributos usuario e senha representam usuario e senha do SGBD a ser
-     * usado na conexão
-     */
-    private static final String usuario = "root";
-    private static final String senha = "teste123";
-    /**
-     * O atributo con representa um objeto que contém a conexão com o banco de
-     * dados em si
-     */
+    private static final String dataBase = "jdbc:mysql://sql10.freesqldatabase.com:3306/sql10395968";
+
+    private static final String driver = "com.mysql.jdbc.Driver";
+
+    private static final String user = "sql10395968";
+    private static final String pass = "RKzVbNTmCv";
+
     private static Connection con = null;
 
-    /**
-     * Metodo que retorna uma conexão com o banco de dados
-     *
-     * @return objeto java.sql.Connection
-     */
     public static Connection getConnection() {
-        // primeiro testo se o objeto con não foi inicializado
+
         if (con == null) {
             try {
-                // defino a classe do driver a ser usado
+
                 Class.forName(driver);
-                // criação da conexão com o BD
-                con
-                        = DriverManager.getConnection(
-                                banco, usuario, senha);
+
+                con = DriverManager.getConnection(dataBase, user, pass);
             } catch (ClassNotFoundException ex) {
-                System.out.println("Não encontrou o driver");
+                System.out.println("Couldn't find the driver");
             } catch (SQLException ex) {
-                System.out.println("Erro ao conectar: "
-                        + ex.getMessage());
+                System.out.println("Error to connect: " + ex.getMessage());
             }
         }
         return con;
     }
 
-    /**
-     * Método que recebe um comando SQL para ser executado
-     *
-     * @param sql
-     * @return um objeto java.sql.PreparedStatement
-     */
     public static PreparedStatement getPreparedStatement(String sql) {
-        // testo se a conexão já foi criada
+
         if (con == null) {
-            // cria a conexão
             con = getConnection();
         }
         try {
-            // retorna um objeto java.sql.PreparedStatement
             return con.prepareStatement(sql);
         } catch (SQLException e) {
-            System.out.println("Erro de sql: "
-                    + e.getMessage());
+            System.out.println("Error in sql: " + e.getMessage());
         }
         return null;
     }
-
-
 }
