@@ -19,7 +19,7 @@ import entidade.Questions;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.PathParam;
 
-@Path("questions")
+@Path("/questions")
 public class QuizService {
 
     private QuestionDAO questionDAO;
@@ -42,12 +42,12 @@ public class QuizService {
     }
 
     @GET
-    @Produces("application/json")
+    @Produces(MediaType.APPLICATION_JSON)
     @Path("/get/{id}")
     public String getQuestion(@PathParam("id") int id) {
 
         Questions question = new Questions();
-        question.setId(id);
+        //question.setId(id);
 
         QuestionDAO dao = new QuestionDAO();
 

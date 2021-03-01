@@ -48,20 +48,19 @@ public class QuestionDAO {
 
     public Questions searchQuestion(int id) {
         String sql = "SELECT * FROM questions where id=?";
-        Questions question = null;
+        Questions question = new Questions();
 
         PreparedStatement pst = DBSettings.getPreparedStatement(sql);
         try {
 
-            pst.setInt(1, question.getId());
+            pst.setInt(1, id);
             ResultSet res = pst.executeQuery();
 
             if (res.next()) {
                 
-                question = new Questions();
-                question.setId(id);
-                question.setQuestion(res.getString("question"));
-                question.setAnswer(res.getString("answer"));
+                question.setId(res.getInt(1));
+                question.setQuestion(res.getString(2));
+                question.setAnswer(res.getString(3));
 
             }
 
