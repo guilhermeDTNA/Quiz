@@ -1,6 +1,6 @@
-CREATE DATABASE sql10395968;
+CREATE DATABASE sql10.freesqldatabase.com;
 
-USE sql10395968;
+USE sql10.freesqldatabase.com;
 
 CREATE TABLE questions(id INT NOT NULL AUTO_INCREMENT, question VARCHAR(400), answer VARCHAR(400), PRIMARY KEY(id));
 

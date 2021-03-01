@@ -1,14 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package entidade;
+package entity;
 
 /**
  *
  * @author guilherme
  */
+//Essa classe é uma entidade que segue os padrões da tabela no BD, definindo todas suas colunas para cada questão
 public class Questions {
 
     private int id;
@@ -38,5 +34,4 @@ public class Questions {
     public void setAnswer(String answer) {
         this.answer = answer;
     }
-
 }
