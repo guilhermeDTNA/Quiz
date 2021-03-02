@@ -5,7 +5,7 @@ Para executar o backend da aplicação é necessário ter um servidor de aplica�
 O servidor utilizado para executar o webservice foi o Glassfish, por isso recomendado sua utilização para tal. É importante verificar se não há outra aplicação na máquina utilizando as portas 8080, 8181 e 4848, caso já exista, você pode alterar as portas utilizadas pelo Glassfish substituindo o arquivo domain.xml, encontrado em: glassfish5/glassfish/domains/domain1/config, pelo arquivo domain.xml encontrado nesse repositório, na pasta Backend. No caso de haver a substituição, é necessário alterar o link da requisição AJAX no frontend substituindo "localhost:8080" por "localhost:9090".
 
 
-Para instalar o Glasfish em um ambiente Linux e executar o backend, digite os códigos abaixo no terminal:
+Para instalar o Glassfish em um ambiente Linux e executar o backend, digite os códigos abaixo no terminal:
 
 cd ~
 wget -c http://download.oracle.com/glassfish/5.0/release/glassfish-5.0.zip 
