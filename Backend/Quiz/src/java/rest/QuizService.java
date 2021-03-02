@@ -18,9 +18,12 @@ import dao.QuestionsDAO;
 import entity.Questions;
 
 //Classe resopnsável por criar as rotas por onde as requisições serão feitas, não tem conexão direta à base de dados
+//@CORS({"/Quiz/*"})
 @Path("/questions")
 public class QuizService {
 
+    CORSFilter cors = new CORSFilter();
+    
     //Private é importante para manter o encapsulamento
     private QuestionsDAO questionDAO;
 

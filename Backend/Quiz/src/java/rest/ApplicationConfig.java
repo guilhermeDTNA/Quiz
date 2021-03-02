@@ -23,6 +23,7 @@ public class ApplicationConfig extends javax.ws.rs.core.Application {
      * out calling this method in getClasses().
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
+        resources.add(rest.CORSFilter.class);
         resources.add(rest.QuizService.class);
     }
 
