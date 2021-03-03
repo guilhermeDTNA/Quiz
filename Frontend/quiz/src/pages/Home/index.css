@@ -1,0 +1,42 @@
+.homeContainer{
+	background-color: #87CEEB;
+	border-color: black;
+	border-width: 3px;
+	border-style: solid;
+	border-radius: 10px;
+
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+
+	height: 15rem;
+	width: 40rem;
+
+	margin-top: 5rem;
+	margin-left: 25%;
+
+	/*Define o tempo de transição*/
+	transition: filter 0.2s;
+}
+
+/*Escurece o brilho ao passar o cursor*/
+.homeContainer:hover{
+	filter: brightness(0.9);
+}
+
+/*Só aplica ao primeiro parágrafo*/
+.homeContainer > p:first-child {
+	color: red;
+}
+
+.startButton{
+	height: 4rem;
+	width: 10rem;
+	margin-top: 1.5rem;
+	border-radius: 5px;
+	background: #90EE90;
+	color: #4169E1;
+
+	font-size: 1.25rem;
+	font-weight: 680;
+}

@@ -1,0 +1,14 @@
+.headerContainer{
+	background-color: #E6E6FA;
+	width: 100%;
+	height: 15%;
+	text-align: center;
+	align-items: center;
+	margin-top: -20px;
+}
+
+
+.headerContainer p{
+	color: red;
+	font-size: 25px;
+}
