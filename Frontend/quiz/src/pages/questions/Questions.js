@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
 
 import CurrentQuestion from './CurrentQuestion';
-import OverlayScreen from './OverlayScreen';
+
+import OverlayFinish from './OverlayFinish';
+import OverlayLose from './OverlayLose';
+
 import './styles.css';
 
 export default class Questions extends Component{
@@ -19,7 +22,10 @@ this.state = {
     currentQuestion: 1,
     question: '',
     answer: '',
-    idQuestion: ''
+    idQuestion: '',
+
+    finished: false,
+    lose: false
 };
 
 this.selectQuestion = this.selectQuestion.bind(this);
@@ -27,6 +33,7 @@ this.showItems = this.showItems.bind(this);
 this.increaseQuestion = this.increaseQuestion.bind(this);
 this.setCurrentId = this.setCurrentId.bind(this);
 this.setCurrentQuestion = this.setCurrentQuestion.bind(this);
+this.loseQuiz = this.loseQuiz.bind(this);
 }
 
 componentDidMount() {
@@ -104,7 +111,7 @@ increaseQuestion(){
     let state = this.state;
 
     if(state.currentQuestion === 5){
-
+    state.finished = true;
     state.currentQuestion=0;
 
 }
@@ -116,8 +123,13 @@ this.setCurrentId();
 state.question = state.items[state.currentId].question;
 state.answer = state.items[state.currentId].answer;
 state.idQuestion = state.items[state.currentId].id;
-    //console.log(this.state.currentQuestion);
 
+    this.setState(state);
+}
+
+loseQuiz(){
+    let state = this.state;
+    state.lose = true;
     this.setState(state);
 }
 
@@ -126,9 +138,6 @@ render(){
 
     let state = this.state;
 
-
-    //let currentPosition = this.state.madeQuestions[currentQuestion];
-    //console.log(this.state.madeQuestions[4]);
 
     if (state.error) {
     return <div>Error: {state.error.message}</div>;
@@ -145,22 +154,21 @@ render(){
           ))}
         </ul>
         */
-        if(state.currentQuestion === 0){
-            return( <OverlayScreen /> ); 
-        } else{
-        
-        return(
+        if(state.finished){
+            return( <div><OverlayFinish /></div> ); 
+        } else if(state.lose){
+            return( <div><OverlayLose /></div> );
+        } 
 
-            <>
+        else{
 
+            return(
+                <>
+                <CurrentQuestion loseQuiz={this.loseQuiz.bind(this)} increaseQuestion={this.increaseQuestion.bind(this)} number={this.state.currentQuestion} question={this.state.question} answer={this.state.answer} idQuestion={this.state.idQuestion} />
+                </>
 
-
-            <CurrentQuestion increaseQuestion={ this.increaseQuestion.bind(this) } number={this.state.currentQuestion} question={this.state.question} answer={this.state.answer} idQuestion={this.state.idQuestion} />
-            
-            </>
-
-            );
+                );
+            }
         }
-    }
     }
 }

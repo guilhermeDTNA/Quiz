@@ -17,10 +17,11 @@ export default class CurrentQuestion extends Component{
 
 	verifyAnswer(answer){
 
-		if(answer===this.state.answerQuestion){
-			this.props.increaseQuestion();
+		if(answer!==this.state.answerQuestion){
+			this.props.loseQuiz();
 		} else{
-			console.log("Wrong: "+this.state.answerQuestion);
+			//console.log(answer);
+			this.props.increaseQuestion();
 		}
 	}
 
@@ -43,12 +44,9 @@ export default class CurrentQuestion extends Component{
 
 				<h2>{this.props.question} </h2>
 				<button onClick={() => this.verifyAnswer(this.props.answer)}>{this.props.answer}</button>
-				<h2>Alternative 2</h2>
-				<h2>Alternative 3</h2>
-				<h2>Alternative 4</h2>
-
-				<h2>{this.props.idQuestion}</h2>
-				<button onClick={this.props.increaseQuestion}>Click here</button>
+				<button onClick={() => this.verifyAnswer("Teste alternativa")}>Alternative 2</button>
+				<button onClick={() => this.verifyAnswer("Teste alternativa")}>Alternative 3</button>
+				<button onClick={() => this.verifyAnswer("Teste alternativa")}>Alternative 4</button>
 
 				</div>
 				);
@@ -64,13 +62,10 @@ export default class CurrentQuestion extends Component{
 
 				<h2>{this.props.question} </h2>
 				<button onClick={() => this.verifyAnswer(this.props.answer)}>{this.props.answer}</button>
-				<h2>Alternative 5</h2>
-				<h2>Alternative 6</h2>
-				<h2>Alternative 7</h2>
+				<button onClick={() => this.verifyAnswer("Teste alternativa")}>Alternative 5</button>
+				<button onClick={() => this.verifyAnswer("Teste alternativa")}>Alternative 6</button>
+				<button onClick={() => this.verifyAnswer("Teste alternativa")}>Alternative 7</button>
 
-				<button onClick={this.props.increaseQuestion}>Click here</button>
-
-				<h2>{this.props.idQuestion}</h2>
 				</div>
 				);
 			break;
@@ -84,12 +79,9 @@ export default class CurrentQuestion extends Component{
 
 				<h2>{this.props.question} </h2>
 				<button onClick={() => this.verifyAnswer(this.props.answer)}>{this.props.answer}</button>
-				<h2>Alternative 8</h2>
-				<h2>Alternative 9</h2>
-				<h2>Alternative 10</h2>
-
-				<h2>{this.props.idQuestion}</h2>
-				<button onClick={this.props.increaseQuestion}>Click here</button>
+				<button onClick={() => this.verifyAnswer("Teste alternativa")}>Alternative 8</button>
+				<button onClick={() => this.verifyAnswer("Teste alternativa")}>Alternative 9</button>
+				<button onClick={() => this.verifyAnswer("Teste alternativa")}>Alternative 10</button>
 
 				</div>
 				);
@@ -104,12 +96,9 @@ export default class CurrentQuestion extends Component{
 
 				<h2>{this.props.question} </h2>
 				<button onClick={() => this.verifyAnswer(this.props.answer)}>{this.props.answer}</button>
-				<h2>Alternative 11</h2>
-				<h2>Alternative 12</h2>
-				<h2>Alternative 13</h2>
-
-				<h2>{this.props.idQuestion}</h2>
-				<button onClick={this.props.increaseQuestion}>Click here</button>
+				<button onClick={() => this.verifyAnswer("Teste alternativa")}>Alternative 11</button>
+				<button onClick={() => this.verifyAnswer("Teste alternativa")}>Alternative 12</button>
+				<button onClick={() => this.verifyAnswer("Teste alternativa")}>Alternative 13</button>
 
 				</div>
 				);
@@ -125,12 +114,9 @@ export default class CurrentQuestion extends Component{
 				<h2>{this.props.question} </h2>
 				<button onClick={() => this.verifyAnswer(this.props.answer)}>{this.props.answer}</button>
 
-				<h2>Alternative 14</h2>
-				<h2>Alternative 15</h2>
-				<h2>Alternative 16</h2>
-
-				<h2>{this.props.idQuestion}</h2>
-				<button onClick={this.props.increaseQuestion}>Click here</button>
+				<button onClick={() => this.verifyAnswer("Teste alternativa")}>Alternative 14</button>
+				<button onClick={() => this.verifyAnswer("Teste alternativa")}>Alternative 15</button>
+				<button onClick={() => this.verifyAnswer("Teste alternativa")}>Alternative 16</button>
 
 				</div>
 				);
