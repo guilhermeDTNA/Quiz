@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 
 import CurrentQuestion from './CurrentQuestion';
+import OverlayScreen from './OverlayScreen';
+import './styles.css';
 
 export default class Questions extends Component{
 
@@ -14,7 +16,7 @@ this.state = {
     madeQuestions: [],
     currentId: '',
 
-    currentQuestion: 0,
+    currentQuestion: 1,
     question: '',
     answer: '',
     idQuestion: ''
@@ -48,7 +50,7 @@ componentDidMount() {
                 error
             });
         })
-            
+
             .then( () => this.selectQuestion())
 
 }
@@ -66,7 +68,6 @@ selectQuestion(){
         state.madeQuestions.push(qSelected);
     }
 }
-state.currentQuestion++;
 state.question = state.items[state.madeQuestions[0]].question;
 state.answer = state.items[state.madeQuestions[0]].answer;
 state.idQuestion = state.items[state.madeQuestions[0]].id;
@@ -103,8 +104,8 @@ increaseQuestion(){
     let state = this.state;
 
     if(state.currentQuestion === 5){
-    alert('You won!');
-    state.currentQuestion = 0;
+
+    state.currentQuestion=0;
 
 }
 
@@ -119,8 +120,6 @@ state.idQuestion = state.items[state.currentId].id;
 
     this.setState(state);
 }
-
-
 
 
 render(){
@@ -146,10 +145,15 @@ render(){
           ))}
         </ul>
         */
+        if(state.currentQuestion === 0){
+            return( <OverlayScreen /> ); 
+        } else{
         
         return(
 
             <>
+
+
 
             <CurrentQuestion increaseQuestion={ this.increaseQuestion.bind(this) } number={this.state.currentQuestion} question={this.state.question} answer={this.state.answer} idQuestion={this.state.idQuestion} />
             
@@ -157,5 +161,6 @@ render(){
 
             );
         }
+    }
     }
 }

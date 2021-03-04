@@ -9792,6 +9792,11 @@
     "hash-base" "^3.0.0"
     "inherits" "^2.0.1"
 
+"rodal@^1.2.10":
+  "integrity" "sha1-nVnb7trCeRf27j5phQXbMCgnLyo="
+  "resolved" "https://registry.npmjs.org/rodal/-/rodal-1.2.10.tgz"
+  "version" "1.2.10"
+
 "rollup-plugin-babel@^4.3.3":
   "integrity" "sha512-Lek/TYp1+7g7I+uMfJnnSJ7YWoD58ajo6Oarhlex7lvUce+RCKRuGRSgztDO3/MF/PuGKmUL5iTHKf208UNszw=="
   "resolved" "https://registry.yarnpkg.com/rollup-plugin-babel/-/rollup-plugin-babel-4.4.0.tgz"
