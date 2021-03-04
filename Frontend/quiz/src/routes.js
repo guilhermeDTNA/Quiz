@@ -5,7 +5,7 @@ import Home from './pages/Home/';
 import Mistake from './pages/Mistake/';
 import PageHeader from './PageHeader/';
 
-import Question1 from './pages/questions/Question1';
+import Questions from './pages/questions/Questions';
 
 export default class Routes extends Component {
 
@@ -18,7 +18,7 @@ export default class Routes extends Component {
 			<Switch>
 
 			<Route exact path="/" component={Home} />
-			<Route exact path="/question1" component={Question1} />
+			<Route exact path="/question1" component={Questions} />
 
 			<Route path="*" component = {Mistake} />
 
