@@ -1,3 +1,5 @@
+/*Todo o conteúdo da tela inicial*/
+
 .homeContainer{
 	background-color: #87CEEB;
 	border-color: black;
@@ -29,6 +31,7 @@
 	color: red;
 }
 
+/*Botão da tela inicial*/
 .startButton{
 	height: 4rem;
 	width: 10rem;

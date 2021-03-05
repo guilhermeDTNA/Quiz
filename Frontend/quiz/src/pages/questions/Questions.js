@@ -8,81 +8,75 @@ import OverlayLose from './OverlayLose';
 
 import './styles.css';
 
+//Componente que recebe todas as questões e exibe o overlay apropriado, de acordo com o resultado obtido em CurrentQuestion
 export default class Questions extends Component{
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            error: null,
-            isLoaded: false,
-            items: [],
+  constructor(props) {
+    super(props);
+    this.state = {
+      error: null,
+      isLoaded: false,
+      items: [],
 
-            madeQuestions: [],
-            currentId: '',
+      madeQuestions: [],
+      currentId: '',
 
-            currentQuestion: 1,
-            question: '',
-            answer: '',
-            idQuestion: '',
+      currentQuestion: 1,
+      question: '',
+      answer: '',
+      idQuestion: '',
 
-            finished: false,
-            lose: false,
+      finished: false,
+      lose: false,
 
-            hasError: false
-        };
+    };
 
-        this.selectQuestion = this.selectQuestion.bind(this);
-        this.showItems = this.showItems.bind(this);
-        this.increaseQuestion = this.increaseQuestion.bind(this);
-        this.setCurrentId = this.setCurrentId.bind(this);
-        this.setCurrentQuestion = this.setCurrentQuestion.bind(this);
-        this.loseQuiz = this.loseQuiz.bind(this);
-    }
+    this.selectQuestion = this.selectQuestion.bind(this);
+    this.showItems = this.showItems.bind(this);
+    this.increaseQuestion = this.increaseQuestion.bind(this);
+    this.setCurrentId = this.setCurrentId.bind(this);
+    this.setCurrentQuestion = this.setCurrentQuestion.bind(this);
+    this.loseQuiz = this.loseQuiz.bind(this);
+  }
 
-    componentDidCatch(error, info) {
-    // Mostra uma UI alternativa
-    this.setState({ hasError: true });
-    // Você também pode registrar o erro em um serviço de relatório de erros
-    console.log("Erro: "+error);
-    console.log("Informations: "+info);
-}
 
-componentDidMount() {
+  componentDidMount() {
 
-    fetch("http://localhost:8080/Quiz/questions/list")
+    //Caso queira executar a aplicação por outro dispositivo, basta trocar 'localhost' pelo IP do dispositivo na rede
+    fetch("http://192.168.1.8:8080/Quiz/questions/list")
     .then(res => res.json())
     .then(res => {
-        this.setState({
-            isLoaded: true,
-            items: res,
-        });
+      this.setState({
+        isLoaded: true,
+        items: res,
+      });
     },
         // Nota: É importante lidar com os erros aqui
         // em vez de um bloco catch() para não recebermos
         // exceções de erros dos componentes.
         (error) => {
-            this.setState({
-                isLoaded: true,
-                error
-            });
+          this.setState({
+            isLoaded: true,
+            error
+          });
         })
 
     .then( () => this.selectQuestion())
 
-}
+  }
 
 
-selectQuestion(){
+  selectQuestion(){
 
     let state = this.state;
 
 
     while (state.madeQuestions.length<5){
-        let qSelected = Math.floor(Math.random() * (5 - 0));
+      let qSelected = Math.floor(Math.random() * (5 - 0));
 
-        if(state.madeQuestions.indexOf(qSelected) === -1){
-            state.madeQuestions.push(qSelected);
-        }
+      if(state.madeQuestions.indexOf(qSelected) === -1){
+        state.madeQuestions.push(qSelected);
+      }
     }
     state.question = state.items[state.madeQuestions[0]].question;
     state.answer = state.items[state.madeQuestions[0]].answer;
@@ -90,15 +84,15 @@ selectQuestion(){
 
     this.setState(state); 
 
-}
+  }
 
-showItems(){
+  showItems(){
     for (var i = 0; i < this.state.madeQuestions.length; i++) {
-        console.log("Position "+i+" "+this.state.madeQuestions[i]);
+      console.log("Position "+i+" "+this.state.madeQuestions[i]);
     }
-}
+  }
 
-setCurrentId(){
+  setCurrentId(){
     let state = this.state;
 
     /*CurrentID armazena qual o ID da questão de acordo com o número da questão, se estiver na questão
@@ -106,22 +100,22 @@ setCurrentId(){
     */
     state.currentId = state.madeQuestions[state.currentQuestion-1];
     this.setState(state);
-}
+  }
 
-setCurrentQuestion(){
+  setCurrentQuestion(){
     let state = this.state;
 
     state.currentQuestion++;
     this.setState(state);
-}
+  }
 
-increaseQuestion(){
+  increaseQuestion(){
 
     let state = this.state;
 
     if(state.currentQuestion === 5){
-        state.finished = true;
-        state.currentQuestion=0;
+      state.finished = true;
+      state.currentQuestion=0;
 
     }
 
@@ -134,47 +128,42 @@ increaseQuestion(){
     state.idQuestion = state.items[state.currentId].id;
 
     this.setState(state);
-}
+  }
 
-loseQuiz(){
+  loseQuiz(){
     let state = this.state;
     state.lose = true;
     this.setState(state);
-}
-
-
-render(){
-
-    if (this.state.hasError) {
-      // Você pode renderizar qualquer alternativa de UI
-      return <h1>Something went wrong.</h1>;
   }
 
-  let state = this.state;
+
+  render(){
+
+    let state = this.state;
 
 
-  if (state.error) {
+    if (state.error) {
       return <div>Error: {state.error.message}</div>;
-  } else if (!state.isLoaded) {
+    } else if (!state.isLoaded) {
       return <div><Loading /></div>;
-  } else {
+    } else {
 
 
       if(state.finished){
-          return( <div><OverlayFinish /></div> ); 
+        return( <div><OverlayFinish /></div> ); 
       } else if(state.lose){
-          return( <div><OverlayLose /></div> );
+        return( <div><OverlayLose /></div> );
       } 
 
       else{
 
-          return(
-              <>
-              <CurrentQuestion loseQuiz={this.loseQuiz.bind(this)} increaseQuestion={this.increaseQuestion.bind(this)} number={this.state.currentQuestion} question={this.state.question} answer={this.state.answer} idQuestion={this.state.idQuestion} />
-              </>
+        return(
+          <>
+          <CurrentQuestion loseQuiz={this.loseQuiz.bind(this)} increaseQuestion={this.increaseQuestion.bind(this)} number={this.state.currentQuestion} question={this.state.question} answer={this.state.answer} idQuestion={this.state.idQuestion} />
+          </>
 
-              );
-          }
+          );
+        }
       }
+    }
   }
-}

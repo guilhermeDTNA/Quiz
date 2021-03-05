@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 
 import './index.css';
 
+//Componente que exibe a tela inicial
 class Home extends Component {
 
   render() {

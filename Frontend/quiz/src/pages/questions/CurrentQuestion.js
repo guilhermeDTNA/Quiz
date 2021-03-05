@@ -3,21 +3,22 @@ import React, {Component} from 'react';
 import Questions from './Questions';
 import './styles.css';
 
+/*Componente que recebe o id e exibe cada questão, verificando a resposta*/
 export default class CurrentQuestion extends Component{
 	constructor(props){
 		super(props);
 
+		//Armazena o id da questão passada e sua resposta
 		this.state={
 			idQuestion: props.idQuestion,
 			answerQuestion: props.answer
 		}
-
+		//Autoriza o método a manipular o state
 		this.verifyAnswer = this.verifyAnswer.bind(this);
 	}
 
-
+	//Verifica se a resposta recebida condiz com a resposta correta
 	verifyAnswer(answer){
-
 		if(answer!==this.state.answerQuestion){
 			this.props.loseQuiz();
 		} else{
@@ -27,13 +28,13 @@ export default class CurrentQuestion extends Component{
 
 
 	render(){
-
+		//Seta os estados de acordo com o recebido
 		this.state.idQuestion = this.props.idQuestion;
 		this.state.answerQuestion = this.props.answer;
 
-
 		let id = this.state.idQuestion;
 
+		//Exibe as alternativas de acordo com o id da questão recebido
 		switch(id){
 			case 1:
 			return(
@@ -127,6 +128,7 @@ export default class CurrentQuestion extends Component{
 				);
 			break;
 
+			//Deve retornar alguma coisa senão dá erro
 			default:
 			return(<div></div>);
 

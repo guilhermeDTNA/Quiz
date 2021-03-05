@@ -1,6 +1,8 @@
+/*Fontes importadas do Google fontes*/
 @import url('https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&family=Open+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
 
+/*Aplicados a todas as páginas da aplicação*/
 body{
 	background-color: #F8F8FF;
 	font-family: 'Open Sans', sans-serif;
