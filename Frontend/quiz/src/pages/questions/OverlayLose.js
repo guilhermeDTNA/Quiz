@@ -14,15 +14,13 @@ export default function OverlayLose() {
 		<div className="overlay">
 
 		<Modal 
-		className="victoryModal"
 		isOpen={isOpen}
-		contentLabel="My dialog"
-		className="mymodal"
-		overlayClassName="myoverlay"
+		className="errorModal"
+		overlayClassName="errorOverlay"
 		closeTimeoutMS={500}
 		>
-		<div className="textModal">Infelizmente você errou.</div>
-		<Link to="/"><button className="buttomModal">Clique aqui para recomeçar</button></Link>
+		<div className="textModalError">Infelizmente você errou.</div>
+		<Link to="/"><button className="buttomModalError">Clique aqui para recomeçar</button></Link>
 		</Modal>
 		</div>
 		);

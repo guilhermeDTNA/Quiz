@@ -1,12 +1,51 @@
-.textModal{
-  margin-bottom: 20px;
+/*Overlay para vitória*/
+.victoryModal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  border: 1px solid #ccc;
+  background: #FBFB7D;
+  overflow: auto;
+  border-radius: 4px;
+  outline: none;
+  padding: 20px;
+
+  text-align: center;
+
 }
 
-.buttomModal{
+.textModalVictory{
+  margin-bottom: 30px;
+  font-size: 20px;
+  color: #1E3E73;
+}
+
+.buttomModalVictory{
   height: 30px;
 }
 
-.mymodal {
+.victoryOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+
+/*Overlay para erro*/
+.textModalError{
+  margin-bottom: 30px;
+}
+
+.buttomModalError{
+  height: 30px;
+}
+
+.errorModal {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -20,11 +59,9 @@
   padding: 20px;
 
   text-align: center;
+} 
 
-}
-
-/*Para o background*/
-.myoverlay {
+.errorOverlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -33,15 +70,68 @@
   background-color: rgba(0, 0, 0, 0.75);
 }
 
+/*Define configurações dos overlays*/
 .ReactModal__Overlay {
   opacity: 0;
-  transition: opacity 500ms ease-in-out;
+  transition: opacity 900ms ease-in-out;
 }
 
 .ReactModal__Overlay--after-open {
   opacity: 1;
 }
 
-.ReactModal__Overlay--before-close {
-  opacity: 0;
+
+/*Questões*/
+.questionNumber{
+  color: #7059F5;
+}
+
+.askQuestion{
+  font-family: 'Bree Serif', serif;
+  font-size: 23px;
+  font-weight: normal;
+  margin-bottom: 3rem;
+}
+
+.alternatives{
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin-left: 10%;
+}
+
+.alternatives button{
+  flex: 1;
+  margin: 20px;
+  width: 62rem;
+  height: 40px;
+
+
+  border-width: 2px; 
+  border-color: #8A6C21;
+
+  transition: filter 0.2s; 
+
+  color: black;
+  font-size: 20px;
+}
+
+.alternatives button:hover{
+  filter: brightness(0.8);
+}
+
+.alternatives > button:nth-child(1) {
+  background: #E9FADA;  
+}
+
+.alternatives > button:nth-child(2) {
+  background: #DDECEE;  
+}
+
+.alternatives > button:nth-child(3) {
+  background: #EEC2C9;  
+}
+
+.alternatives > button:nth-child(4) {
+  background: #BEB2DA;  
 }

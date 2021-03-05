@@ -17,13 +17,11 @@ export default function OverlayFinish() {
 		<Modal 
 		className="victoryModal"
 		isOpen={isOpen}
-		contentLabel="My dialog"
-		className="mymodal"
-		overlayClassName="myoverlay"
+		overlayClassName="victoryOverlay"
 		closeTimeoutMS={500}
 		>
-		<div className="textModal">Parabéns! Você acertou todas as questões.</div>
-		<Link to="/"><button className="buttomModal">Clique aqui para recomeçar</button></Link>
+		<div className="textModalVictory">Parabéns! Você acertou todas as questões.</div>
+		<Link to="/"><button className="buttomModalVictory">Clique aqui para recomeçar</button></Link>
 		</Modal>
 		</div>
 		);

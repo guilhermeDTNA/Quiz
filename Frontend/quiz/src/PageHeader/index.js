@@ -6,7 +6,7 @@ export default function PageHeader(){
 	return(
 
 			<div className="headerContainer">
-				<p>Good Luck!</p>
+				<p>Boa sorte!</p>
 			</div>
 
 
