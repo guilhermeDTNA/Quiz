@@ -13,26 +13,39 @@
 <p><b>Passo 1: </b>Para instalar o Glassfish em um ambiente Linux e executar o backend, digite os códigos abaixo no terminal:</p>
 
 <p>
+  ```console
 cd ~ <br />
 wget -c http://download.oracle.com/glassfish/5.0/release/glassfish-5.0.zip <br />
 unzip glassfish-5.0.zip <br />
 cp Quiz/Backend/Quiz/dist/Quiz.war ~/glassfish5/glassfish/domains/domain1/autodeploy/ <br />
 cd glassfish5/glassfish/bin/ <br />
-./asadmin </p>
-
+./asadmin 
+```
+</p>
 
 <p>Para instalar o Glassfish e executar a aplicação backend em ambiente Windows, basta fazer o download do servidor disponível nesse link: http://download.oracle.com/glassfish/5.0/release/glassfish-5.0.zip, extrair o arquivo baixado e executar o arquivo asadmin, localizado na pasta bin da instalação do Glassfish. Após isso, copie o arquivo Quiz.war localizado no diretório Quiz\Backend\Quiz\dist deste repositório para o diretório glassfish5\glassfish\domains\domain1\autodeploy</p>
 
 <p><b>Passo 2: </b>Para ambos ambientes, uma vez que o terminal foi aberto após a execução dos comandos anteriores, o comando necessário para ligar o servidor é:</p> 
 
-<p>start-domain</p>
+<p>
+```console
+start-domain
+```
+</p>
 
 <p><b>Passo 3: </b>Caso não seja mostrada alguma mensagem de erro no terminal, basta navegar até o diretorório Frontend/quiz/ e executar o frontend através dos comandos abaixo: </p>
 
-<p>npm install (Esse comando só precisa ser executado na primeira vez em que o projeto for executado)<br />
+<p>
+```console
+npm install (Esse comando só precisa ser executado na primeira vez em que o projeto for executado)<br />
 npm start
+```
 </p>
 
 <p>Feito isso, basta acessar o endereço http://localhost:3000 no navegador para verificar a execução do frontend. Caso algum erro seja exibido no navegador verifique se o backend está sendo executado acessando o endereço: http://localhost:8080/Quiz/questions/list. Caso não seja exibida a lista de questões em formato JSON, será preciso reiniciar o servidor glassfish retornando ao passo 2 e executando:</p>
 
-<p>restart-domain</p> 
+<p>
+```console
+restart-domain
+```
+</p> 
