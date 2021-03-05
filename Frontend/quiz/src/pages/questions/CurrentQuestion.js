@@ -39,7 +39,7 @@ export default class CurrentQuestion extends Component{
 		switch(id){
 			case 1:
 			return(
-				<div>
+				<div className="containerQuestion">
 				<p className="questionNumber">Questão {this.props.number}</p>
 
 				<hr/>

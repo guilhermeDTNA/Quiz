@@ -1,121 +1,3 @@
-/*Overlay para vitória*/
-.victoryModal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  border: 1px solid #ccc;
-  background: #FBFB7D;
-  overflow: auto;
-  border-radius: 4px;
-  outline: none;
-  padding: 20px;
-
-  text-align: center;
-
-}
-
-.textModalVictory{
-  margin-bottom: 30px;
-  font-size: 20px;
-  color: #1E3E73;
-}
-
-.buttomModalVictory{
-  height: 30px;
-}
-
-.victoryOverlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.75);
-}
-
-
-/*Overlay para erro*/
-.textModalError{
-  margin-bottom: 30px;
-}
-
-.buttomModalError{
-  height: 30px;
-}
-
-.errorModal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  border: 1px solid #ccc;
-  background: #fff;
-  overflow: auto;
-  border-radius: 4px;
-  outline: none;
-  padding: 20px;
-
-  text-align: center;
-} 
-
-.errorOverlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.75);
-}
-
-/*Define configurações dos overlays*/
-.ReactModal__Overlay {
-  opacity: 0;
-  transition: opacity 900ms ease-in-out;
-}
-
-.ReactModal__Overlay--after-open {
-  opacity: 1;
-}
-
-
-/*Questões*/
-.questionNumber{
-  color: #7059F5;
-}
-
-.askQuestion{
-  font-family: 'Bree Serif', serif;
-  font-size: 23px;
-  font-weight: normal;
-  margin-bottom: 3rem;
-}
-
-.alternatives{
-  display: flex;
-  flex-direction: column;
-  width: 70%;
-  margin-left: 10%;
-}
-
-.alternatives button{
-  flex: 1;
-  margin: 20px;
-  width: 62rem;
-  height: 40px;
-
-
-  border-width: 2px; 
-  border-color: #8A6C21;
-
-  transition: filter 0.2s; 
-
-  color: black;
-  font-size: 20px;
-}
-
 .alternatives button:hover{
   filter: brightness(0.8);
 }
@@ -134,4 +16,254 @@
 
 .alternatives > button:nth-child(4) {
   background: #BEB2DA;  
+}
+
+/*Para overlays*/
+/*Define configurações dos overlays*/
+.ReactModal__Overlay {
+  opacity: 0;
+  transition: opacity 900ms ease-in-out;
+}
+
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+}
+
+
+/*Overlay victory*/
+.victoryOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+/*Overlay derrota*/
+.errorOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+
+@media screen and (min-width: 900px) {
+  /*Overlay para vitória*/
+  .victoryModal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    border: 1px solid #ccc;
+    background: #FBFB7D;
+    overflow: auto;
+    border-radius: 4px;
+    outline: none;
+    padding: 20px;
+
+    text-align: center;
+
+  }
+
+  .textModalVictory{
+    margin-bottom: 30px;
+    font-size: 20px;
+    color: #1E3E73;
+  }
+
+  .buttomModalVictory{
+    height: 30px;
+  }
+
+
+  /*Overlay para erro*/
+  .textModalError{
+    margin-bottom: 30px;
+    color: red;
+  }
+
+  .buttomModalError{
+    height: 30px;
+  }
+
+  .errorModal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    border: 1px solid #ccc;
+    background: #fff;
+    overflow: auto;
+    border-radius: 4px;
+    outline: none;
+    padding: 20px;
+
+    text-align: center;
+  } 
+
+
+  .containerQuestion{
+
+  }
+
+  /*Questões*/
+  .questionNumber{
+    color: #7059F5;
+  }
+
+  .askQuestion{
+    font-family: 'Bree Serif', serif;
+    font-size: 23px;
+    font-weight: normal;
+    margin-bottom: 3rem;
+  }
+
+  .alternatives{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin-left: 10%;
+  }
+
+  .alternatives button{
+    flex: 1;
+    margin: 20px;
+    width: 62rem;
+    height: 40px;
+
+
+    border-width: 2px; 
+    border-color: #8A6C21;
+
+    transition: filter 0.2s; 
+
+    color: black;
+    font-size: 20px;
+  }
+
+
+}
+
+/*Para dispositivos móveis em geral*/
+@media screen and (max-width: 899px){
+  .containerQuestion{
+    width: 99%;
+  }
+
+  .askQuestion{
+    font-family: 'Bree Serif', serif;
+    font-size: 23px;
+    font-weight: normal;
+    margin-bottom: 1rem;
+  }
+
+  .alternatives{
+    display: flex;
+    flex-direction: column;
+    width: 99%;
+  }
+
+  .alternatives button{
+    flex: 1;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 40px;
+
+    border-width: 2px; 
+    border-color: #8A6C21;
+
+    transition: filter 0.2s; 
+
+    color: black;
+    font-size: 20px;
+    text-align: justify;
+  }
+
+
+  /*Overlay para vitória*/
+  .victoryModal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    border: 1px solid #ccc;
+    background: #fff;
+    overflow: auto;
+    border-radius: 4px;
+    outline: none;
+    padding: 20px;    
+    text-align: center;
+  }
+
+  .textModalVictory{
+    margin-bottom: 30px;
+    font-size: 20px;
+    color: #1E3E73;
+  }
+
+  .buttomModalVictory{
+    height: 60px;
+  }
+
+
+  /*Overlay para derrota*/
+  .textModalError{
+    margin-bottom: 30px;
+    font-size: 20px;
+    color: red;
+  }
+
+  .buttomModalError{
+    height: 60px;
+  }
+
+  .errorModal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    border: 1px solid #ccc;
+    background: #fff;
+    overflow: auto;
+    border-radius: 4px;
+    outline: none;
+    padding: 20px;
+    text-align: center;
+  } 
+}
+
+/*Para dispositivos móveis orientação retrato*/
+@media screen and (max-width: 899px) and (orientation: portrait) {
+  .victoryModal{
+    height: 30%;
+    width: 50%;
+  }
+
+  .errorModal{
+    height: 25%;
+    width: 50%;
+  }
+}
+
+/*Para dispositivos móveis orientação paisagem*/
+@media screen and (max-width: 899px) and (orientation: landscape) {
+
+  .victoryModal{
+    height: 43%;
+    width: 35%;
+  }
+
+  .errorModal{
+    height: 35%;
+    width: 35%;
+  }
 }

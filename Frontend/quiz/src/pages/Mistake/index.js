@@ -7,7 +7,7 @@ import mistake_img from '../img/mistake-img.jpg';
 export default function Mistake(){
 	return(
 
-		<>
+		<div>
 		<div className="title-mistake">
 
 		<p>Ops... página não encontrada!</p>
@@ -18,7 +18,7 @@ export default function Mistake(){
 		<img src={mistake_img} />
 		</div>
 
-		</>
+		</div>
 
 		);
 	}
