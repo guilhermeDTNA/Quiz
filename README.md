@@ -1,4 +1,4 @@
-#Este projeto ainda está em construção
+<h1>Este projeto tem por objetivo a construção de um webservice com servidor e cliente construídos com tecnologias distintas.</h1>
 
 Para executar o backend da aplicação é necessário ter um servidor de aplicação para a plataforma Java EE. Caso já possua algum, como o Tomcat, por exemplo, basta copiar o arquivo Quiz.war presente em: Backend/Quiz/dist/ para o diretório do servidor onde será efetuado o deploy. No caso do Tomcat, a pasta responsável por armazenar arquivos .war é a "webapps".
 
