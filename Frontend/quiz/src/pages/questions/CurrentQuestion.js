@@ -19,6 +19,7 @@ export default class CurrentQuestion extends Component{
 
 	//Verifica se a resposta recebida condiz com a resposta correta
 	verifyAnswer(answer){
+		//Chama os métodos do componente Questions
 		if(answer!==this.state.answerQuestion){
 			this.props.loseQuiz();
 		} else{
