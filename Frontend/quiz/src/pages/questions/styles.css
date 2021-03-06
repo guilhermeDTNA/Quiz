@@ -151,6 +151,11 @@
     width: 99%;
   }
 
+  /*Questões*/
+  .questionNumber{
+    color: #7059F5;
+  }
+
   .askQuestion{
     font-family: 'Bree Serif', serif;
     font-size: 23px;

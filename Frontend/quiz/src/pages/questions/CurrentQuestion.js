@@ -96,7 +96,7 @@ export default class CurrentQuestion extends Component{
 			case 4:
 			return(
 				<div>
-				<p>Question {this.props.number}</p>
+				<p className="questionNumber">Questão {this.props.number}</p>
 
 				<hr/>
 

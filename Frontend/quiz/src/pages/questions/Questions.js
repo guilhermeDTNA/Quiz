@@ -42,7 +42,7 @@ export default class Questions extends Component{
   componentDidMount() {
 
     //Caso queira executar a aplicação por outro dispositivo, basta trocar 'localhost' pelo IP do dispositivo na rede
-    fetch("localhost:8080/Quiz/questions/list")
+    fetch("http://localhost:8080/Quiz/questions/list")
     .then(res => res.json())
     .then(res => {
       this.setState({
