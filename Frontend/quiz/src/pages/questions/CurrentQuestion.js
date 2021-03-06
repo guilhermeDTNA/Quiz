@@ -65,9 +65,9 @@ export default class CurrentQuestion extends Component{
 
 				<h2 className="askQuestion">{this.props.question} </h2>
 				<div className="alternatives">
-				<button onClick={() => this.verifyAnswer("Clousure é um termo que representa a habilidade de se implementar o mesmo método de uma classe-pai de forma diferente nas classes-filhas.")}>Clousure é um termo que representa a habilidade de se implementar o mesmo método de uma classe-pai de forma diferente nas classes-filhas.</button>
+				<button onClick={() => this.verifyAnswer("Closure é um termo que representa a habilidade de se implementar o mesmo método de uma classe-pai de forma diferente nas classes-filhas.")}>Closure é um termo que representa a habilidade de se implementar o mesmo método de uma classe-pai de forma diferente nas classes-filhas.</button>
 				<button onClick={() => this.verifyAnswer(this.props.answer)}>{this.props.answer}</button>
-				<button onClick={() => this.verifyAnswer("Clousure é o nome dado a um dos 3 pilares da Programação Orientada a Objetos, sendo eles: Herança, Clousure e Polimorfismo.")}>Clousure é o nome dado a um dos 3 pilares da Programação Orientada a Objetos, sendo eles: Herança, Clousure e Polimorfismo.</button>
+				<button onClick={() => this.verifyAnswer("Closure é o nome dado a um dos 3 pilares da Programação Orientada a Objetos, sendo eles: Herança, Closure e Polimorfismo.")}>Closure é o nome dado a um dos 3 pilares da Programação Orientada a Objetos, sendo eles: Herança, Closure e Polimorfismo.</button>
 				<button onClick={() => this.verifyAnswer("NDA")}>NDA</button>
 				</div>
 				</div>	

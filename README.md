@@ -34,8 +34,12 @@ $ npm install (Esse comando só precisa ser executado na primeira vez em que o p
 $ npm start
 ```
 
-<p>Feito isso, basta acessar o endereço http://localhost:3000 no navegador para verificar a execução do frontend. Caso algum erro seja exibido no navegador verifique se o backend está sendo executado acessando o endereço: http://localhost:8080/Quiz/questions/list. Caso não seja exibida a lista de questões em formato JSON, será preciso reiniciar o servidor glassfish retornando ao passo 2 e executando:</p>
+<p>Feito isso, basta acessar o endereço http://localhost:3000 no navegador para verificar a execução do frontend. Caso queira executar a aplicação em outro dispositivo conectado na mesma rede que o host do webservice, inclusive dispositivo móvel, visto que o frontend é responsivo, basta trocar 'localhost' pelo IP do dispositivo na rede. Exemplo: 192.168.1.8:3000.
+
+<p>Caso algum erro seja exibido no navegador verifique se o backend está sendo executado acessando o endereço: http://localhost:8080/Quiz/questions/list. Se não for exibida a lista de questões em formato JSON, será preciso reiniciar o servidor glassfish retornando ao passo 2 e executando:</p>
 
 ```console
 asadmin> restart-domain
 ``` 
+
+<p>Outra informação importante é que pelo webservice criado é possível cadastrar, listar, consultar individualmente, alterar e remover registros do banco de dados utilizando os métodos POST, GET, PUT e DELETE presentes em API's Restful.</p>
