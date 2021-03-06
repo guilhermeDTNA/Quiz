@@ -36,7 +36,7 @@ $ sudo npm install -g n
 $ sudo n stable
 ```
 
-<p>Em ambiente Windows, basta ir na <a href="www.nodejs.org/en">página oficial do NodeJS</a>, fazer o download do Node e executar o instalador, seguindo as instruções de instalação.</p>
+<p>Em ambiente Windows, basta ir na <a href="https://www.nodejs.org/en">página oficial do NodeJS</a>, fazer o download do Node e executar o instalador, seguindo as instruções de instalação.</p>
 
 <p><b>Passo 3: </b>Caso não seja mostrada alguma mensagem de erro no terminal, no caso do Linux, e não falhe a instalação pelo instalador, no caso do Windows, basta navegar até o diretorório Frontend/quiz/ e executar o frontend através dos comandos abaixo: </p>
 
