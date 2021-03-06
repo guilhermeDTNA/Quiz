@@ -14,6 +14,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Collections;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -42,6 +43,8 @@ public class QuestionsDAO {
                 //Adiciona o objeto em uma lista de questões, que conterá todas elas
                 list.add(question);
             }
+            //Embaralha as questões
+            Collections.shuffle(list);
             //Exibe o erro no console
         } catch (SQLException ex) {
             Logger.getLogger(QuestionsDAO.class.getName()).log(Level.SEVERE, null, ex);

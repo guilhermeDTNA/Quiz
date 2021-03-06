@@ -22,10 +22,5 @@
         <filter-name>CORS</filter-name>
         <url-pattern>/Quiz/*</url-pattern>
     </filter-mapping>
-    <!--
-    <init-param>
-        <param-name>com.sun.jersey.spi.container.ContainerResponseFilters</param-name>
-        <param-value>br.com.sga.api.config.CORSFilter</param-value>
-    </init-param>
-    -->
+
 </web-app>
