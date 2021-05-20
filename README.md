@@ -54,3 +54,9 @@ asadmin> restart-domain
 ``` 
 
 <p>Outra informação importante é que pelo webservice criado é possível cadastrar, listar, consultar individualmente, alterar e remover registros do banco de dados utilizando os métodos POST, GET, PUT e DELETE presentes em API's Restful.</p>
+
+<p>Confira a execução do sistema:</p>
+
+<p align="center">
+  <img src="https://github.com/guilhermeDTNA/Quiz/blob/main/execucao_quiz.gif" width="700" alt="Demonstração do sistema">
+</p>
